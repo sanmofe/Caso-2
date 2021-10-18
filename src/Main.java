@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
@@ -7,14 +6,14 @@ import static java.lang.Thread.sleep;
 
 public class Main {
 
-
+	private static Actualizador actualizador;
 
     public static void main(String[] args) {
         String rutaArchivo = "referencias.txt";
         int numMarcosPag = 0;
         int numPags = 0;
         int numRefs = 0;
-        ArrayList referencias = new ArrayList();
+        ArrayList<String> referencias = new ArrayList<String>();
         try(BufferedReader br = new BufferedReader(new FileReader(rutaArchivo))){
 
             //La primera línea es el número de marcos de Página
@@ -51,6 +50,8 @@ public class Main {
             e.printStackTrace();
         }
         System.out.println("Referencias: " + referencias);
+        actualizador = new Actualizador (referencias); 
+        actualizador.start();
 
 
     }
