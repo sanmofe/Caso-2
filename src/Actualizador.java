@@ -24,8 +24,6 @@ public class Actualizador extends Thread{
     }
 
     public void run(){
-
-    	
         try {
             sleep(20);
         } catch (InterruptedException e) {
