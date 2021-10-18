@@ -52,6 +52,7 @@ public class AdminTabla extends Thread{
                 e.printStackTrace();
             }
         }
+        t.alerta=false;
     }
 
 }

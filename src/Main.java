@@ -46,7 +46,8 @@ public class Main {
         actualizador = new Actualizador (t);
         at.start();
         actualizador.start();
-
+        
+        
 
     }
 
