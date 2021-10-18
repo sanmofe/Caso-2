@@ -25,12 +25,14 @@ public class Actualizador extends Thread{
     }
 
     public void run(){
-        try {
-            sleep(20);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        actualizar();
+    	while (true) {
+            try {
+                sleep(20);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            actualizar();	
+    	}
     }
 
 }
