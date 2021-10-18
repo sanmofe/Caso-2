@@ -55,8 +55,7 @@ public class Main {
             e.printStackTrace();
         }
         System.out.println("Referencias: " + referencias);
-        actualizador = new Actualizador (referencias); 
-        actualizador.start();
+        
 
 
     }
