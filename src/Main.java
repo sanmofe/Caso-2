@@ -37,7 +37,12 @@ public class Main {
             System.out.println("Si lo anterior es un FileNotFoundException, no olvides actualizar la ruta del archivo en el código, o renombrar el archivo a 'referencias'");
         }
 
-
+        Tabla t = new Tabla(numMarcosPag);
+        for (MarcoPagina m :
+             t.marcos) {
+            System.out.println(m.pagCargada);
+        }
+        AdminTabla at = new AdminTabla(t, numPags, referencias);
 
 
 
