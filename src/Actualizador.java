@@ -20,6 +20,7 @@ public class Actualizador extends Thread{
     		if (clase==2 || clase==3) {
     			marco.R=false;
     		}
+    		i++;
     	}
     }
 

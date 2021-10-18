@@ -34,7 +34,7 @@ public class MarcoPagina {
     }
 
     public int darClase(){ //Retorna la clase de este marco de página
-        if (!(R && M)) return 0;
+        if (R==false && M==false) return 0;
         if (!R && M) return 1;
         if (R && !M) return 2;
         return 3;

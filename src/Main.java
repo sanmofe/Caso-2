@@ -43,7 +43,7 @@ public class Main {
             System.out.println(m.pagCargada);
         }
         AdminTabla at = new AdminTabla(t, numPags, referencias);
-        actualizador = new Actualizador (referencias);
+        actualizador = new Actualizador (t);
         at.start();
         actualizador.start();
 
