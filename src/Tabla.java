@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Tabla {
 
@@ -23,21 +24,33 @@ public class Tabla {
         return esta;
     }
 
+    public void cambioEstado(int pag, String instruccion){
+        int index = -1;
+        for (MarcoPagina m: marcos) {
+            if (m.pagCargada == pag) index = m.num;
+        }
+        if(instruccion.equals("r")) marcos[index].seReferencia();
+        else marcos[index].seModifica();
+    }
+
     public synchronized void agregarPagina(int num){
         boolean agregada = false;
         for (int i = 0; i < marcos.length; i++) {
             if(marcos[i].estaVacio()){
                 marcos[i].cargarPag(num);
                 agregada = true;
+                break;
             }
         }
         if(agregada) return;
 
-        int indexBorrable = 0;
+        System.out.println("Agregando con el algoritmo NRU");
+        int indexBorrable = -1;
         for (int i = 0; i < 4; i++) {
             ArrayList<MarcoPagina> clase = encontrarClases(i);
             if(clase.isEmpty()) continue;
             indexBorrable = clase.get(0).num;
+            System.out.println("Se eliminó una página de clase " + i);
             break;
         }
         marcos[indexBorrable].cargarPag(num);

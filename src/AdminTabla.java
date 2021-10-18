@@ -31,14 +31,26 @@ public class AdminTabla extends Thread{
         instruccion = aux[1];
 
         if(!t.hayPag(numPag)){
-
+            System.out.println("Página " + numPag + " no está en la RAM");
+            fallasTotales++;
+            System.out.println("Fallos totales: " + fallasTotales);
+            t.agregarPagina(numPag);
         }
+
+        t.cambioEstado(numPag, instruccion);
 
     }
 
     public void run(){
         for (String ref: referencias) {
+
             ejecutarReferencia(ref);
+
+            try {
+                sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 

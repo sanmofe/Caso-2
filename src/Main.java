@@ -43,19 +43,9 @@ public class Main {
             System.out.println(m.pagCargada);
         }
         AdminTabla at = new AdminTabla(t, numPags, referencias);
-
-
-
-        System.out.println("Número de marcos de página: " + numMarcosPag);
-        System.out.println("Número de páginas del proceso: " + numPags);
-        System.out.println("Número de referencias en el archivo: " + numRefs);
-        try {
-            sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Referencias: " + referencias);
-        
+        actualizador = new Actualizador (referencias);
+        at.start();
+        actualizador.start();
 
 
     }

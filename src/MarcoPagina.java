@@ -12,17 +12,25 @@ public class MarcoPagina {
         R = false;
         M = false;
         this.num = num;
-        pagCargada = 0;
+        pagCargada = -1; //-1 representa una página vacía
+    }
+
+    public void cargarPag(int pagCargada){
+        this.pagCargada = pagCargada;
+        R = false;
+        M = false;
     }
 
     public synchronized boolean haSidoModificada() { return  M; }
 
-    public synchronized void cambiarModificada(){ M = !M; }
+    public synchronized void seModifica() { M = true; }
 
     public synchronized boolean haSidoReferenciada() { return R; }
 
+    public synchronized void seReferencia() { R = true; }
+
     public synchronized void cambiarReferenciada(){
-        R = !R;
+        R = false;
     }
 
     public int darClase(){ //Retorna la clase de este marco de página
@@ -33,12 +41,11 @@ public class MarcoPagina {
     }
 
     public boolean estaVacio(){
-        return pagCargada == 0;
+        return pagCargada == -1;
     }
 
-    public void cargarPag(int pagCargada){
-        this.pagCargada = pagCargada;
+    public String toString(){
+        return "Marco #" + num + ", página #" + pagCargada + ", R es " + R + ", M es " + M;
     }
-
 
 }
