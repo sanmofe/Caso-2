@@ -4,12 +4,14 @@ import java.util.Arrays;
 public class Tabla {
 
     public MarcoPagina[] marcos;
+    public boolean alerta;
 
     public Tabla(int espacio){
         marcos = new MarcoPagina[espacio];
         for (int i = 0; i < marcos.length; i++) {
             marcos[i] = new MarcoPagina(i);
         }
+        alerta=true;
     }
 
     public boolean hayPag(int numPag){

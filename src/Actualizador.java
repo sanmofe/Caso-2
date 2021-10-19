@@ -3,6 +3,7 @@
 public class Actualizador extends Thread{
 	
 	private Tabla tabla;
+
 	
     //El segundo thread se encargará de ejecutar el algoritmo de actualización de los bits R y M con base en el
     //algoritmo de reemplazo presentado por Tanenbaum. Este thread debe correr cada 20 milisegundos.
@@ -25,7 +26,7 @@ public class Actualizador extends Thread{
     }
 
     public void run(){
-    	while (true) {
+    	while (tabla.alerta) {
             try {
                 sleep(20);
             } catch (InterruptedException e) {
